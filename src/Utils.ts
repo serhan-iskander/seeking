@@ -28,8 +28,6 @@ export function updateGrid(grid: Array<Array<Boolean>>, setGrid: (value: (((prev
                 grid[i][j + 1] && liveNeighbours++;
             }
             newGrid[i] = newGrid[i] || [];
-            console.log("updating");
-            debugger;
             newGrid[i][j] = getStatus(grid[i][j], liveNeighbours);
         })
     });
