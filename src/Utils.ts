@@ -36,7 +36,7 @@ export function updateGrid(grid: Array<Array<Boolean>>, setGrid: (value: (((prev
     setGrid(newGrid);
 }
 
-export function getStatus(gridElementElement: Boolean, liveNeighbours: number):Boolean {
+export function getStatus(gridElementElement: Boolean, liveNeighbours: number): Boolean {
     if (gridElementElement) {
         if (liveNeighbours < 2) {
             return false;
