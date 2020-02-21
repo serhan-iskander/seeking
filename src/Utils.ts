@@ -1,4 +1,5 @@
-export function updateGrid(grid: Array<Array<Boolean>>): Array<Array<Boolean>> {
+export function updateGrid(grid: Array<Array<Boolean>>, actualSize:number=50): Array<Array<Boolean>> {
+    const size = actualSize -1;
     const newGrid: Array<Array<Boolean>> = [];
     grid.forEach((row: Boolean[], i: number) => {
         row.forEach((val: Boolean, j: number) => {
@@ -8,23 +9,23 @@ export function updateGrid(grid: Array<Array<Boolean>>): Array<Array<Boolean>> {
                 if (j > 0) {
                     grid[i - 1][j - 1] && liveNeighbours++;
                 }
-                if (j < 49) {
+                if (j < size) {
                     grid[i - 1][j + 1] && liveNeighbours++;
                 }
             }
             if (j > 0) {
                 grid[i][j - 1] && liveNeighbours++;
-                if (i < 49) {
+                if (i < size) {
                     grid[i + 1][j - 1] && liveNeighbours++;
                 }
             }
-            if (i < 49) {
+            if (i < size) {
                 grid[i + 1][j] && liveNeighbours++;
-                if (j < 49) {
+                if (j < size) {
                     grid[i + 1][j + 1] && liveNeighbours++;
                 }
             }
-            if (j < 49) {
+            if (j < size) {
                 grid[i][j + 1] && liveNeighbours++;
             }
             newGrid[i] = newGrid[i] || [];
