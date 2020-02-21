@@ -1,4 +1,4 @@
-export function updateGrid(grid: Array<Array<Boolean>>, setGrid: (value: (((prevState: Array<Array<Boolean>>) => Array<Array<Boolean>>) | Array<Array<Boolean>>)) => void) {
+export function updateGrid(grid: Array<Array<Boolean>>): Array<Array<Boolean>> {
     const newGrid: Array<Array<Boolean>> = [];
     grid.forEach((row: Boolean[], i: number) => {
         row.forEach((val: Boolean, j: number) => {
@@ -31,7 +31,7 @@ export function updateGrid(grid: Array<Array<Boolean>>, setGrid: (value: (((prev
             newGrid[i][j] = getStatus(grid[i][j], liveNeighbours);
         })
     });
-    setGrid(newGrid);
+    return newGrid;
 }
 
 export function getStatus(gridElement: Boolean, liveNeighbours: number): Boolean {
